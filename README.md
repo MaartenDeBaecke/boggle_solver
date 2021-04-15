@@ -12,4 +12,4 @@ P Y T H<br/>
 
 Your input strings needs to be: bogglesolverpyth
 
-This script uses a dutch dictionary. You can ofcourse replace the dutch words with english words under "short_dic".
+This script uses a dutch dictionary. You can ofcourse replace the dutch words with english words under "short_dict".
