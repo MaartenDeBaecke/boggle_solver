@@ -170,7 +170,6 @@ def find_next_char(current_word, option, options, path): #finds next char for gi
             if new_word not in words:
                 if (find_duplicate(path) == False):
                     words.add(new_word)
-                    print(new_word)
 
     if (any(item.startswith(new_word) for item in dictionary)):
         index = int(path[-1])
@@ -191,7 +190,11 @@ def find_word(index): #find all words starting with board[index] letter
     for x in range(len(options)):
         find_next_char(current_word, x, options, path)
 
-
+def index_in_list(list, index):
+    if len(list) > index:
+        return True
+    else:
+        return False
 
 
 board_input = input("Type your board here: ")
@@ -212,6 +215,32 @@ words = set()
 for i in range(len(board)):
     find_word(i)
 end = time.time()
+
+#print out the words in a 8 x ... grid
+wordList = list(words)
+for i in range(0, len(wordList), 1):
+    if (i%8 == 0):
+        word1, word2, word3, word4, word5, word6, word7, word8 = "", "", "", "", "", "", "", ""
+
+        if (index_in_list(wordList, i)):
+            word1 = wordList[i]
+        if (index_in_list(wordList, i+1)):
+            word2 = wordList[i+1]
+        if (index_in_list(wordList, i+2)):
+            word3 = wordList[i+2]
+        if (index_in_list(wordList, i+3)):
+            word4 = wordList[i+3]
+        if (index_in_list(wordList, i+4)):
+            word5 = wordList[i+4]
+        if (index_in_list(wordList, i+5)):
+            word6 = wordList[i+5]
+        if (index_in_list(wordList, i+6)):
+            word7 = wordList[i+6]
+        if (index_in_list(wordList, i+7)):
+            word8 = wordList[i+7]
+
+        print("%-11s%-15s%-11s%-15s%-11s%-15s%-11s%-11s" % (word1, word2, word3, word4, word5, word6, word7, word8))
+
 
 print("--------------------------------")
 print("Found " + str(len(words)) + " Words in " + (str(end - start))[:-10] + "seconds")
